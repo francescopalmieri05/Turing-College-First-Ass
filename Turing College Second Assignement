@@ -1,0 +1,27 @@
+import pandas as pd
+import numpy as np
+
+url = "https://raw.githubusercontent.com/fivethirtyeight/data/master/births/US_births_2000-2014_SSA.csv"
+
+filename = pd.read_csv(url)
+print(filename)
+
+
+impact_by_month = filename.groupby("month").births.sum().sort_values(ascending = False).head(1)
+print(impact_by_month)
+
+impact_by_year = filename.groupby("year").births.sum()
+print(impact_by_year)
+
+impact_by_dw = filename.groupby("day_of_week").births.sum()
+print(impact_by_dw)
+
+
+
+Answers
+
+#1)it does not look there is a strong trend between months-childbirth but however in summer kids are born more and going 9 months backwards when kids are conceived, it seems that during winter months people concive more 
+#2) yes, untill 2008 the growth rate is positive affected by economic boom (internet and mass market) after 2008 (financial crisis) there is a strong decline due to financial instability and uncertainty 
+#3)tuesday
+#4)lowest is february, highest august
+#5)the most predictables are month march and apri while the least predictable ones are the november and december
